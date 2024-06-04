@@ -119,3 +119,88 @@ Each post script block consists of three arguments:
 | "python version" | "IronPyhton" ( uses the latest iron python version installed ) or "3.10" to indicate c-python version 3.10 |
 | "script file path" | Fully qualified file path to python script to be executed |
 | "script arguments" | Can be blank "" or omitted, or a list of arguments: ["arg1 value 1", "arg2 value 2"] | 
+
+
+### Complete samples
+
+Using the samples above, a complete json file is shown below.
+
+```json
+{
+  "pre script": [
+    {
+      "python version": "IronPython",
+      "script file path": "your\\path\\here\\test.py",
+      "script arguments": ""
+    },
+    {
+      "python version": "IronPython",
+      "script file path": "your\\path\\here\\test.py",
+      "script arguments": ["arg1 value 1", "arg2 value 2"]
+    }
+  ],
+  "batch processor scripts": [
+    {
+      "start_interval": 20,
+      "pre script": {
+        "python version": "IronPython",
+        "script file path": "your\\path\\here\\test.py"
+      },
+      "post script": {
+        "python version": "IronPython",
+        "script file path": "your\\path\\here\\test.py"
+      },
+      "setting files": [
+        "my/file/path",
+        "my/file/path",
+        "my/file/path"
+      ]
+    },
+    {
+      "start_interval": 20,
+      "pre script": {
+        "python version": "IronPython",
+        "script file path": "your\\path\\here\\test.py"
+      },
+      "post script": {
+        "python version": "3.10",
+        "script file path": "your\\path\\here\\test.py"
+      },
+      "setting files": [
+        "my/file/path",
+        "my/file/path"
+      ]
+    }
+  ],
+  "post script": [
+    {
+      "python version": "3.10",
+      "script file path": "your\\path\\here\\test.py"
+    },
+    {
+      "python version": "3.10",
+      "script file path": "your\\path\\here\\test.py",
+      "script arguments": [ "arg1 value 1", "arg2 value 2" ]
+    }
+  ]
+}
+```
+
+Note:
+
+Pre and Post script nodes can be omitted. A minimal json file containing just a Revit Batchprocessor block sample:
+
+```json
+{
+  "batch processor scripts": [
+    {
+      "start_interval": 20,
+      "setting files": [
+        "my/file/path",
+        "my/file/path",
+        "my/file/path"
+      ]
+    }
+  ]
+}
+```
