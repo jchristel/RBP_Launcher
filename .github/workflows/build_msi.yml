@@ -40,9 +40,9 @@ jobs:
             $version = "${{steps.version_num_set.outputs.version}}"
             $content = Get-Content -Path Common/GlobalAssemblyInfo.cs -Raw
             echo "Input GlobalAssemblyInfo is $content"
-            $content = $content -replace '\[assembly: AssemblyVersion\(".*"\)\]', '[assembly: AssemblyVersion(\"$version\")]'
-            $content = $content -replace '\[assembly: AssemblyFileVersion\(".*"\)\]', '[assembly: AssemblyFileVersion(\"$version\")]'
-            $content = $content -replace '\[assembly: AssemblyInformationalVersion\(".*"\)\]', '[assembly: AssemblyInformationalVersion(\"$version\")]'
+            $content = $content -replace 'AssemblyVersion\("\d+\.\d+\.\d+"\)', "AssemblyVersion(`"$version`")"
+            $content = $content -replace 'AssemblyFileVersion\("\d+\.\d+\.\d+"\)', "AssemblyFileVersion(`"$version`")"
+            $content = $content -replace 'AssemblyInformationalVersion\("\d+\.\d+\.\d+"\)', "AssemblyInformationalVersion(`"$version`")"
             echo "Updated GlobalAssemblyInfo is $content"
             Set-Content -Path Common/GlobalAssemblyInfo.cs -Value $content
 
