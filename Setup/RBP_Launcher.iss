@@ -1,5 +1,5 @@
 #define AppName "RBP Launcher"
-#define AppVersion "0.0.0"
+#define AppVersion "9.9.9"
 
 [Setup]
 AppName={#AppName}
@@ -17,6 +17,7 @@ DirExistsWarning=no
 
 [Files]
 Source: "..\Launcher_Headless\bin\Release\net6.0\*"; DestDir: "{app}"; Flags: ignoreversion 
+
 
 
 
