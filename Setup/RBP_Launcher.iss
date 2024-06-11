@@ -16,7 +16,7 @@ OutputBaseFilename=RBP_LauncherSetup_v{#AppVersion}
 DirExistsWarning=no
 
 [Files]
-Source: ".\..\Launcher_Headless\bin\x64\Release\net6.0\*"; DestDir: "{app}"; Flags: ignoreversion 
+Source: "..\Launcher_Headless\bin\Release\net6.0\*"; DestDir: "{app}"; Flags: ignoreversion 
 
 
 
